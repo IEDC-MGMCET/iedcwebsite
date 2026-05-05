@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import Image from 'next/image'
+import { CldImage } from 'next-cloudinary'
 import { ExecomMember } from '@/data'
 
 export default function ExecomCard({ member }: { member: ExecomMember }) {
@@ -19,7 +19,6 @@ export default function ExecomCard({ member }: { member: ExecomMember }) {
         padding: '6px 6px 0 0',
       }}
     >
-      {/* Soft background accent */}
       <div
         style={{
           position: 'absolute',
@@ -28,15 +27,13 @@ export default function ExecomCard({ member }: { member: ExecomMember }) {
           left: 6,
           bottom: 6,
           borderRadius: 14,
-          background:
-            'linear-gradient(145deg, rgba(34,197,94,0.18), rgba(201,162,39,0.15))',
+          background: 'linear-gradient(145deg, rgba(34,197,94,0.18), rgba(201,162,39,0.15))',
           transition: 'transform 0.38s cubic-bezier(0.34,1.4,0.64,1)',
           transform: hovered ? 'translate(3px, -3px)' : 'translate(0,0)',
           zIndex: 0,
         }}
       />
 
-      {/* Main card */}
       <div
         style={{
           position: 'absolute',
@@ -46,15 +43,11 @@ export default function ExecomCard({ member }: { member: ExecomMember }) {
           bottom: 0,
           borderRadius: 14,
           overflow: 'hidden',
-          background:
-            'linear-gradient(180deg, #ffffff 0%, #f6f7f2 100%)',
+          background: 'linear-gradient(180deg, #ffffff 0%, #f6f7f2 100%)',
           zIndex: 1,
-          transition:
-            'transform 0.38s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.38s ease',
+          transition: 'transform 0.38s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.38s ease',
           transform: hovered ? 'translate(-2px, 3px)' : 'translate(0,0)',
-          boxShadow: hovered
-            ? '0 18px 45px rgba(0,0,0,0.12)'
-            : '0 6px 18px rgba(0,0,0,0.06)',
+          boxShadow: hovered ? '0 18px 45px rgba(0,0,0,0.12)' : '0 6px 18px rgba(0,0,0,0.06)',
           display: 'flex',
           flexDirection: 'column',
           border: '1px solid rgba(0,0,0,0.05)',
@@ -62,7 +55,7 @@ export default function ExecomCard({ member }: { member: ExecomMember }) {
       >
         {/* Image */}
         <div style={{ flex: 1, overflow: 'hidden', position: 'relative' }}>
-          <Image
+          <CldImage
             src={member.image}
             alt={member.name}
             fill
@@ -70,16 +63,14 @@ export default function ExecomCard({ member }: { member: ExecomMember }) {
             style={{
               objectFit: 'cover',
               objectPosition: 'top center',
-              filter: hovered
-                ? 'none'
-                : 'saturate(0.85) contrast(0.95) brightness(0.92)',
+              filter: hovered ? 'none' : 'saturate(0.85) contrast(0.95) brightness(0.92)',
               transition: 'filter 0.38s ease, transform 0.38s ease',
               transform: hovered ? 'scale(1.04)' : 'scale(1)',
             }}
           />
         </div>
 
-        {/* Info panel */}
+        {/* Content */}
         <div
           style={{
             padding: '0.75rem 0.9rem',
@@ -127,7 +118,7 @@ export default function ExecomCard({ member }: { member: ExecomMember }) {
             {member.role}
           </div>
 
-          {/* Social icons — RESTORED ORIGINAL SVGs */}
+          {/* Social Icons */}
           <div
             style={{
               display: 'flex',
@@ -138,9 +129,12 @@ export default function ExecomCard({ member }: { member: ExecomMember }) {
               transition: 'max-height 0.35s ease, opacity 0.3s ease',
             }}
           >
+            {/* LinkedIn */}
             {member.linkedin && (
               <a
                 href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
                 aria-label="LinkedIn"
                 style={{
@@ -163,9 +157,12 @@ export default function ExecomCard({ member }: { member: ExecomMember }) {
               </a>
             )}
 
+            {/* GitHub */}
             {member.github && (
               <a
                 href={member.github}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
                 aria-label="GitHub"
                 style={{
