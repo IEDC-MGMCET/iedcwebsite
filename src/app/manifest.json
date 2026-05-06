@@ -2,10 +2,7 @@
   "name": "IEDC MGMCET",
   "short_name": "IEDC MGMCET",
   "description": "Innovation & Entrepreneurship Development Centre at MGM College of Engineering and Technology, Pampakuda, Kerala",
-  "start_url": "/",
-  "display": "standalone",
-  "lang": "en-IN",
-   "icons": [
+  "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
       "sizes": "192x192",
@@ -20,5 +17,6 @@
     }
   ],
   "theme_color": "#ffffff",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "display": "standalone"
 }

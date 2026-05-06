@@ -96,6 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${bebasNeue.variable} ${syne.variable} ${dmMono.variable}`}
     >
       <head>
+        <meta name="apple-mobile-web-app-title" content="IEDC MGME" />
         {/* Preconnect to Cloudinary CDN */}
         <link rel="preconnect" href="https://res.cloudinary.com" />
 
