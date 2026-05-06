@@ -218,9 +218,10 @@ export default function HeroSection() {
         >
           <Image
             src="/heroimg.svg"
-            alt="Hero Image"
+            alt="Students building startup ideas at IEDC MGMCET, Pampakuda"
             width={320}
             height={400}
+            priority
             style={{
               width: '100%',
               height: '100%',
