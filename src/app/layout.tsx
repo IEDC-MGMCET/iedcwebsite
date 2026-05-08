@@ -7,6 +7,8 @@ import Loader from '@/components/layout/Loader'
 import ProgressBar from '@/components/layout/ProgressBar'
 import { siteMeta } from '@/data'
 import { defaultMetadata } from '@/lib/metadata'
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // Fonts via next/font
 const bebasNeue = Bebas_Neue({
@@ -117,6 +119,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ConditionalLayout>
           <main>{children}</main>
         </ConditionalLayout>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
