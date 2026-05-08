@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IEDC MGMCET Website
 
-## Getting Started
+Official website for the Innovation and Entrepreneurship Development Cell (IEDC) of MGM College of Engineering and Technology.
 
-First, run the development server:
+Built to showcase the innovation ecosystem, Execom team, events, startup culture, and student-driven initiatives at MGMCET.
+
+---
+
+## ✨ Features
+
+- Modern responsive UI
+- Execom showcase
+- Event and activity sections
+- Smooth animations and transitions
+- Mobile-first design
+- Social media integration
+- Optimized performance
+- Built with Next.js App Router
+
+---
+
+## 🛠 Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Cloudinary
+- React Icons
+- CSS / Inline Styling
+
+---
+
+## 📂 Project Structure
+
+```bash
+app/             # App router pages
+components/      # Reusable UI components
+data/            # Static data and configs
+public/          # Static assets
+styles/          # Global styles
+lib/             # Utility functions
+```
+
+---
+
+## 🚀 Getting Started
+
+### Clone the repository
+
+```bash
+git clone https://github.com/IEDC-MGMCET/website.git
+```
+
+### Navigate into the project
+
+```bash
+cd website
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📸 Assets
 
-To learn more about Next.js, take a look at the following resources:
+- Images are hosted using Cloudinary
+- Static assets are stored inside `/public`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🌐 Social Links
 
-## Deploy on Vercel
+- LinkedIn: https://www.linkedin.com/company/iedc-mgmcet/
+- Instagram: https://www.instagram.com/mgmcet_iedc
+- GitHub: https://github.com/IEDC-MGMCET/
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👥 Maintained By
+
+IEDC MGMCET Execom 2026–27
+
+### Core Development
+
+- Adarsh Antony
+
+---
+
+## 📄 License
+
+This project is maintained by IEDC MGMCET.
+
+All rights reserved © 2026 IEDC MGMCET
