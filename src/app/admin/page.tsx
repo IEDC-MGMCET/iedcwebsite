@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '@/lib/firebase' // adjust path if needed
+import { auth } from '@/lib/firebase'
 
 export default function AdminLoginPage() {
   const router = useRouter()
@@ -22,7 +22,7 @@ export default function AdminLoginPage() {
       router.push('/admin/dashboard')
     } catch (err: any) {
       console.error(err)
-      setError("Invalid email or password") // Providing a cleaner error message
+      setError("Invalid email or password")
     }
 
     setLoading(false)

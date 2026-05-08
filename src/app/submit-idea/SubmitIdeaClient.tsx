@@ -6,6 +6,7 @@ import { ideaPrompts } from '@/data'
 import { db } from '@/lib/firebase'
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 
+
 // ─── Constants ────────────────────────────────────────────────────────────────
 const domains = [
   'Artificial Intelligence / ML', 'FinTech', 'HealthTech', 'EdTech',
@@ -83,6 +84,7 @@ function FileDropZone({ id, label, accept, hint, icon, file, onChange }: {
 
 // ─── Main Page ─────────────────────────────────────────────────────────────────
 export default function SubmitIdeaClient() {
+  const Formdisabled = useState(true);
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
@@ -142,36 +144,36 @@ export default function SubmitIdeaClient() {
         submittedAt: serverTimestamp(),
         status: 'pending',
         founder: {
-          name:     refs.fname.current?.value || '',
-          email:    refs.femail.current?.value || '',
-          phone:    refs.phone.current?.value || '',
-          dept:     refs.dept.current?.value || '',
-          year:     refs.year.current?.value || '',
+          name: refs.fname.current?.value || '',
+          email: refs.femail.current?.value || '',
+          phone: refs.phone.current?.value || '',
+          dept: refs.dept.current?.value || '',
+          year: refs.year.current?.value || '',
           linkedin: refs.linkedin.current?.value || '',
-          github:   refs.github.current?.value || '',
+          github: refs.github.current?.value || '',
         },
         team: {
-          size:    refs.teamsize.current?.value || '',
-          name:    refs.teamname.current?.value || '',
+          size: refs.teamsize.current?.value || '',
+          name: refs.teamname.current?.value || '',
           members: teamRows,
         },
         idea: {
-          name:        refs.idea.current?.value || '',
-          domain:      refs.domain.current?.value || '',
-          stage:       refs.stage.current?.value || '',
-          problem:     refs.problem.current?.value || '',
-          solution:    refs.solution.current?.value || '',
-          market:      refs.market.current?.value || '',
-          revenue:     refs.revenue.current?.value || '',
+          name: refs.idea.current?.value || '',
+          domain: refs.domain.current?.value || '',
+          stage: refs.stage.current?.value || '',
+          problem: refs.problem.current?.value || '',
+          solution: refs.solution.current?.value || '',
+          market: refs.market.current?.value || '',
+          revenue: refs.revenue.current?.value || '',
           competition: refs.competition.current?.value || '',
-          demoUrl:     refs.demourl.current?.value || '',
+          demoUrl: refs.demourl.current?.value || '',
         },
-        ask:       refs.ask.current?.value || '',
+        ask: refs.ask.current?.value || '',
         additonal: refs.anyadd.current?.value || '',
         files: {
-          pitchDeck:   pitchDeck?.name || null,
-          prototype:   prototype?.name || null,
-          supportDoc:  supportDoc?.name || null,
+          pitchDeck: pitchDeck?.name || null,
+          prototype: prototype?.name || null,
+          supportDoc: supportDoc?.name || null,
         },
       })
       setSubmitted(true)
@@ -214,7 +216,7 @@ export default function SubmitIdeaClient() {
         <div style={{ position: 'absolute', width: 600, height: 600, background: 'radial-gradient(circle,rgba(43,56,62,.07),transparent 70%)', top: -220, right: '2vw', borderRadius: '50%', filter: 'blur(90px)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', width: 300, height: 300, background: 'radial-gradient(circle,rgba(201,162,39,.1),transparent 70%)', bottom: -80, left: '6vw', borderRadius: '50%', filter: 'blur(60px)', pointerEvents: 'none' }} />
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <p className="section-tag">Applications Open</p>
+          <p className="section-tag">{Formdisabled ? 'Application will be opening soon!!' : 'Applications Open'}</p>
           <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(3.5rem,7.5vw,7rem)', lineHeight: 0.92, letterSpacing: '0.04em', color: 'var(--text)', position: 'relative', zIndex: 1, marginTop: '0.6rem' }}>
             Submit Your<br /><span style={{ color: 'var(--gold)' }}>Startup Idea</span>
           </h1>
@@ -395,12 +397,17 @@ export default function SubmitIdeaClient() {
                   I confirm that this idea is my own or my team&apos;s original work, and I agree to IEDC MGMCET reviewing and storing my submission details. *
                 </span>
               </label>
-              <button onClick={handleSubmit} disabled={submitting}
+              {Formdisabled ? (
+                <p style={{ marginTop: '0.5rem', paddingLeft: '1.5rem', fontFamily: '"DM Mono", monospace', fontSize: '0.58rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--muted-light)' }}>
+                  We will start to accept applications soon. Stay tuned!
+                </p>
+              ) : <button onClick={handleSubmit} disabled={submitting}
                 style={{ marginTop: '1rem', width: '100%', padding: '1.1rem', background: submitting ? 'rgba(43,56,62,0.5)' : 'linear-gradient(90deg,var(--green-dark),var(--green))', color: '#fff', fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '0.85rem', letterSpacing: '0.12em', textTransform: 'uppercase', border: 'none', borderRadius: 8, cursor: submitting ? 'not-allowed' : 'pointer', transition: 'transform 0.3s, box-shadow 0.3s' }}
                 onMouseEnter={e => { if (!submitting) { const t = e.currentTarget; t.style.transform = 'translateY(-2px)'; t.style.boxShadow = '0 14px 40px rgba(43,56,62,.3)' } }}
                 onMouseLeave={e => { const t = e.currentTarget; t.style.transform = ''; t.style.boxShadow = '' }}>
                 {submitting ? '⟳  Submitting…' : 'Submit My Application'}
-              </button>
+              </button>}
+
               <p style={{ textAlign: 'center', fontFamily: '"DM Mono", monospace', fontSize: '0.55rem', letterSpacing: '0.12em', color: 'var(--muted-light)', marginTop: '0.8rem', textTransform: 'uppercase' }}>
                 Every submission is reviewed personally · Response within 3–5 working days
               </p>

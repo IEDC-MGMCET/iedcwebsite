@@ -13,10 +13,26 @@ const quickLinks = [
 ]
 
 const socials = [
-  { label: 'LinkedIn',          href: 'https://linkedin.com/company/iedc-mgmcet', icon: <FiLinkedin size={15} /> },
-  { label: 'Instagram',         href: 'https://instagram.com/iedc_mgmcet',        icon: <FiInstagram size={15} /> },
-  { label: 'GitHub',            href: 'https://github.com/iedc-mgmcet',           icon: <FiGithub size={15} /> },
-  { label: 'iedc@mgmcet.ac.in', href: 'mailto:iedc@mgmcet.ac.in',                icon: <FiMail size={15} /> },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/iedc-mgmcet/',
+    icon: <FiLinkedin size={15} />,
+  },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/mgmcet_iedc',
+    icon: <FiInstagram size={15} />,
+  },
+  {
+    label: 'GitHub',
+    href: 'https://github.com/IEDC-MGMCET/',
+    icon: <FiGithub size={15} />,
+  },
+  {
+    label: 'iedc@mgmcet.ac.in',
+    href: 'mailto:iedc@mgmcet.ac.in',
+    icon: <FiMail size={15} />,
+  },
 ]
 
 export default function Footer() {

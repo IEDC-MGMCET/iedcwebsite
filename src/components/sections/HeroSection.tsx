@@ -10,73 +10,28 @@ export default function HeroSection() {
   const subRef = useRef<HTMLParagraphElement>(null)
   const btnsRef = useRef<HTMLDivElement>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
-  const nodeCanvasRef = useRef<HTMLCanvasElement>(null)
-
   // Entrance animations
   useEffect(() => {
-    const els = [eyebrowRef.current, headlineRef.current, subRef.current, btnsRef.current, scrollRef.current]
+    const els = [
+      eyebrowRef.current,
+      headlineRef.current,
+      subRef.current,
+      btnsRef.current,
+      scrollRef.current,
+    ]
+
     els.forEach((el, i) => {
       if (!el) return
+
       el.style.opacity = '0'
       el.style.transform = 'translateY(20px)'
       el.style.transition = `opacity 0.8s ease ${i * 0.18}s, transform 0.8s ease ${i * 0.18}s`
-      setTimeout(() => {
+
+      requestAnimationFrame(() => {
         el.style.opacity = '1'
         el.style.transform = 'translateY(0)'
-      }, 800 + i * 180)
+      })
     })
-  }, [])
-
-  // Node canvas
-  useEffect(() => {
-    const canvas = nodeCanvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
-
-    const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-    resize()
-    window.addEventListener('resize', resize)
-
-    const nodes = Array.from({ length: 40 }, () => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-    }))
-
-    let raf: number
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      nodes.forEach(n => {
-        n.x += n.vx; n.y += n.vy
-        if (n.x < 0 || n.x > canvas.width) n.vx *= -1
-        if (n.y < 0 || n.y > canvas.height) n.vy *= -1
-        ctx.beginPath()
-        ctx.arc(n.x, n.y, 2, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(14,158,6,0.25)'
-        ctx.fill()
-      })
-      nodes.forEach((a, i) => {
-        nodes.slice(i + 1).forEach(b => {
-          const d = Math.hypot(a.x - b.x, a.y - b.y)
-          if (d < 130) {
-            ctx.beginPath()
-            ctx.moveTo(a.x, a.y)
-            ctx.lineTo(b.x, b.y)
-            ctx.strokeStyle = `rgba(201,162,39,${0.12 * (1 - d / 130)})`
-            ctx.lineWidth = 0.8
-            ctx.stroke()
-          }
-        })
-      })
-      raf = requestAnimationFrame(draw)
-    }
-    draw()
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize) }
   }, [])
 
   return (

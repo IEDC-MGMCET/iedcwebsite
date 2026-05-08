@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import RevealWrapper from '@/components/ui/RevealWrapper'
 import EventCard from '@/components/ui/EventCard'
-import { events } from '@/data'
+import { events } from '@/data/eventsData'
 
 const ALL_TAGS = ['All', ...Array.from(new Set(events.map(e => e.tag)))]
 

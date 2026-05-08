@@ -1,11 +1,12 @@
 'use client'
+
 import Link from 'next/link'
 import EventCard from '@/components/ui/EventCard'
-import { events } from '@/data'
+import { events } from '@/data/eventsData'
+
+const preview = events.slice(0, 4)
 
 export default function EventsSection() {
-  const preview = events.slice(0, 4)
-
   return (
     <section
       id="events"
@@ -43,7 +44,6 @@ export default function EventsSection() {
             >
               What&apos;s Happening
             </span>
-
             <h2
               style={{
                 fontFamily: '"Bebas Neue", sans-serif',
@@ -93,7 +93,6 @@ export default function EventsSection() {
             />
           ))}
         </div>
-
       </div>
 
       <style>{`

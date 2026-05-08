@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { Event } from '@/data'
+import { Event } from '@/data/eventsData'
 import EventModal from './EventModal'
 
 export default function EventCard({ event, animClass = 'reveal' }: { event: Event; animClass?: string }) {

@@ -1,7 +1,7 @@
 'use client'
 import { useLayoutEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { Event } from '@/data'
+import { Event } from '@/data/eventsData'
 
 export default function EventModal({ event, onClose }: { event: Event; onClose: () => void }) {
   useLayoutEffect(() => {
@@ -13,6 +13,8 @@ export default function EventModal({ event, onClose }: { event: Event; onClose: 
       document.body.style.overflow = ''
     }
   }, [onClose])
+
+  const canRegister = event.status === 'ongoing' || event.status === 'upcoming'
 
   const modal = (
     <div
@@ -95,7 +97,7 @@ export default function EventModal({ event, onClose }: { event: Event; onClose: 
 
         {/* Content */}
         <div style={{ padding: '1.6rem 1.8rem 2rem' }}>
-          <div style={{ marginBottom: '0.8rem' }}>
+          <div style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
             <span style={{
               background: event.tagColor || 'rgba(43,56,62,0.1)',
               color: event.tagTextColor || 'var(--green)',
@@ -104,6 +106,24 @@ export default function EventModal({ event, onClose }: { event: Event; onClose: 
               fontFamily: 'Syne, sans-serif', letterSpacing: '0.06em',
             }}>
               {event.tag}
+            </span>
+
+            {/* Status pill */}
+            <span style={{
+              padding: '0.25rem 0.75rem', borderRadius: 20,
+              fontSize: '0.6rem', fontWeight: 700,
+              fontFamily: '"DM Mono", monospace', letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              background:
+                event.status === 'ongoing'  ? 'rgba(34,197,94,0.15)'  :
+                event.status === 'upcoming' ? 'rgba(234,179,8,0.15)'  :
+                                              'rgba(100,116,139,0.12)',
+              color:
+                event.status === 'ongoing'  ? '#16a34a' :
+                event.status === 'upcoming' ? '#b45309' :
+                                              '#64748b',
+            }}>
+              {event.status === 'ongoing' ? '● Live' : event.status === 'upcoming' ? 'Upcoming' : 'Past'}
             </span>
           </div>
 
@@ -147,20 +167,27 @@ export default function EventModal({ event, onClose }: { event: Event; onClose: 
           </div>
 
           <div style={{ display: 'flex', gap: '0.75rem' }}>
-            <button style={{
-              flex: 1, padding: '0.85rem',
-              background: 'var(--green)', color: '#fff', fontWeight: 700,
-              fontSize: '0.78rem', letterSpacing: '0.12em',
-              border: 'none', borderRadius: 6, cursor: 'pointer',
-              fontFamily: 'Syne, sans-serif', textTransform: 'uppercase',
-              transition: 'transform 0.2s, box-shadow 0.2s, background 0.2s',
-            }}
-              onMouseEnter={e => { const t = e.currentTarget; t.style.background = 'var(--green-dark)'; t.style.transform = 'translateY(-2px)'; t.style.boxShadow = '0 8px 24px var(--green-glow)' }}
-              onMouseLeave={e => { const t = e.currentTarget; t.style.background = 'var(--green)'; t.style.transform = ''; t.style.boxShadow = '' }}
-            >
-              Register Now →
-            </button>
+            {/* Register Now — only for ongoing or upcoming */}
+            {canRegister && (
+              <button
+                onClick={() => event.registerLink && window.open(event.registerLink, '_blank')}
+                style={{
+                  flex: 1, padding: '0.85rem',
+                  background: 'var(--green)', color: '#fff', fontWeight: 700,
+                  fontSize: '0.78rem', letterSpacing: '0.12em',
+                  border: 'none', borderRadius: 6, cursor: 'pointer',
+                  fontFamily: 'Syne, sans-serif', textTransform: 'uppercase',
+                  transition: 'transform 0.2s, box-shadow 0.2s, background 0.2s',
+                }}
+                onMouseEnter={e => { const t = e.currentTarget; t.style.background = 'var(--green-dark)'; t.style.transform = 'translateY(-2px)'; t.style.boxShadow = '0 8px 24px var(--green-glow)' }}
+                onMouseLeave={e => { const t = e.currentTarget; t.style.background = 'var(--green)'; t.style.transform = ''; t.style.boxShadow = '' }}
+              >
+                Register Now →
+              </button>
+            )}
+
             <button onClick={onClose} style={{
+              flex: canRegister ? undefined : 1,
               padding: '0.85rem 1.4rem', background: 'transparent',
               color: 'var(--muted)', fontWeight: 600, fontSize: '0.78rem',
               letterSpacing: '0.08em', border: '1.5px solid var(--bg3)',

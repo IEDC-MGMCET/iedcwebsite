@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useRef } from 'react'
-
 const reasons = [
   {
     title: 'Real Experience',
@@ -9,10 +8,10 @@ const reasons = [
     desc: 'No passive lectures. Every program is built around doing — prototyping, pitching, and shipping real work.',
   },
   {
-    title: 'Ground Floor',
-    stat: '2025',
-    statLabel: 'Founded',
-    desc: 'We are just getting started. Join now and shape what IEDC MGMCET becomes — not just participate in it.',
+    title: 'Fresh Start',
+    stat: '2026',
+    statLabel: 'New Chapter',
+    desc: 'IEDC MGMCET is entering a new phase with a rebuilt team, fresh ideas, and students ready to create meaningful impact from day one.',
   },
   {
     title: 'Zero Barriers',
