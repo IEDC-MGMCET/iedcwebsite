@@ -46,11 +46,13 @@ export const siteMeta = {
   fullName: 'Innovation & Entrepreneurship Development Centre',
   college: 'MGM College of Engineering and Technology',
   location: 'Pampakuda, Ernakulam, Kerala',
-  tagline: 'A launchpad for bold ideas. We turn curious minds into founders — through mentorship, community, and relentless execution.',
+  tagline:
+    'A launchpad for bold ideas. We turn curious minds into founders — through mentorship, community, and relentless execution.',
+
   socials: {
-    instagram: '#',
-    linkedin: '#',
-    github: '#',
+    instagram: 'https://www.instagram.com/mgmcet_iedc',
+    linkedin: 'https://www.linkedin.com/company/iedc-mgmcet/',
+    github: 'https://github.com/IEDC-MGMCET/',
     email: 'iedc@mgmcet.ac.in',
   },
 }
