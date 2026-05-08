@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Bebas_Neue, Syne, DM_Mono } from 'next/font/google'
 import './globals.css'
 import ConditionalLayout from '@/components/layout/ConditionalLayout'
-import Cursor from '@/components/layout/Cursor'
 import Loader from '@/components/layout/Loader'
 import ProgressBar from '@/components/layout/ProgressBar'
 import { siteMeta } from '@/data'
@@ -115,7 +114,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Loader />
         <ProgressBar />
-        <Cursor />
         <ConditionalLayout>
           <main>{children}</main>
         </ConditionalLayout>
