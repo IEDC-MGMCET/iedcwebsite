@@ -1,6 +1,6 @@
 # IEDC MGMCET Website
 
-Official website for the Innovation and Entrepreneurship Development Cell (IEDC) of MGM College of Engineering and Technology.
+Official website for the Innovation and Entrepreneurship Development Cell (IEDC) of MGM College of Engineering and Technology, Pampakuda.
 
 Built to showcase the innovation ecosystem, Execom team, events, startup culture, and student-driven initiatives at MGMCET.
 
