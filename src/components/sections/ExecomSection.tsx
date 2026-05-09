@@ -309,10 +309,10 @@ export default function ExecomSection() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns:
-              'repeat(auto-fill, minmax(150px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
             gap: '1.8rem 1.2rem',
           }}
+          className="execom-team-grid"
         >
           {team.map((member) => (
             <ExecomCard
@@ -324,9 +324,13 @@ export default function ExecomSection() {
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 480px) {
           .nodal-grid {
             grid-template-columns: 1fr !important;
+          }
+          .execom-team-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 1rem 0.8rem !important;
           }
         }
       `}</style>

@@ -165,7 +165,6 @@ export default function HeroSection() {
             aspectRatio: '4/5',
             flexShrink: 0,
             zIndex: 2,
-            display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             gap: '0.5rem',
@@ -207,11 +206,16 @@ export default function HeroSection() {
       </div>
 
       <style>{`
-        @media (max-width: 900px) {
+        .hero-image {
+          display: flex;
+        }
+          
+        @media (max-width: 640px) {
           .hero-image {
             display: none;
           }
-
+        }
+        @media (max-width: 900px) {
           .hero-content {
             padding-top: 3.5rem !important;
             max-width: 100% !important;
