@@ -151,17 +151,7 @@ export const execomMembers: ExecomMember[] = [
     linkedin: 'https://www.linkedin.com/in/abhijith-ar-770b47334/',
     github: 'https://github.com/IEDC-MGMCET/',
   },
-  {
-    id: '15',
-    name: 'Jilna Johnson',
-    role: 'Associate Community Lead',
-    image: 'JilnaJohnson',
-    year: '26-27',
-    isCurrent: true,
-    linkedin: 'https://www.linkedin.com/company/iedc-mgmcet/',
-    github: 'https://github.com/IEDC-MGMCET/',
-  },
-
+  /* 
   {
     id: '16',
     name: 'Ananya Suresh',
@@ -201,5 +191,5 @@ export const execomMembers: ExecomMember[] = [
     isCurrent: false,
     linkedin: 'https://www.linkedin.com/company/iedc-mgmcet/',
     github: 'https://github.com/IEDC-MGMCET/',
-  },
+  }, */
 ]
